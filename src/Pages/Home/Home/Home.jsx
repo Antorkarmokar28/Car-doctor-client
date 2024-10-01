@@ -1,9 +1,16 @@
 import React from 'react';
+import Carousel from '../Carousel/Carousel';
+import About from '../About/About';
+import Services from '../Services/Services';
+import ContactBox from '../ContactBox/ContactBox';
 
 const Home = () => {
     return (
         <div>
-            <h1 className='text-center text-5xl'>This is home pages</h1>
+            <Carousel></Carousel>
+            <About></About>
+            <Services></Services>
+            <ContactBox></ContactBox>
         </div>
     );
 };
