@@ -1,12 +1,14 @@
 import { FaFacebookF, FaGoogle, FaLinkedinIn } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import loginSVG from "../../assets/images/login/login.svg"
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import axios from "axios";
 const SignIn = () => {
 
-    const { signInUser } = useContext(AuthContext)
-
+    const { signInUser } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
     const handleSignIn = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -14,8 +16,15 @@ const SignIn = () => {
         const password = form.password.value;
         signInUser(email, password)
             .then(result => {
-                const user = result.user
-                console.log(user)
+                const signedUser = result.user
+                console.log(signedUser);
+                const user = { email }
+                // navigate(location?.state ? location.state : '/')
+                // get access tocken
+                axios.post('http://localhost:5000/jwt', user)
+                .then(res => {
+                    console.log(res.data);
+                })
             })
             .catch(error => {
                 console.log(error)
