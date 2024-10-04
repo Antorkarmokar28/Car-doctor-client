@@ -53,7 +53,7 @@ const Navbar = () => {
                     </div>
                 </div>
 
-                <div className={`absolute lg:hidden z-50 p-10 top-24 left-0 bg-white w-full font-semibold transform transition-transform gap-6 text-lg ${isOpenMenu ? "block" : "hidden"}`}
+                <div className={`absolute lg:hidden z-50 p-10 top-20 left-0 bg-white w-full font-semibold transform transition-transform gap-6 text-lg ${isOpenMenu ? "block" : "hidden"}`}
                     style={{ transition: "transform 0.3s ease, opacity 0.3s ease " }}
                 >
                     <ul className="list-none mb-4">
